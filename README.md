@@ -6,6 +6,9 @@ A simple tree viewer component for Angular.
 **Demo**
 You can check the demo on [Github Pages](https://lei6mar.github.io/tree-view-example/)
 
+**Code**
+[Github repo](https://github.com/Lei6mar/ng-json-tree-view)
+
 
 **Installation**
 > npm i ng-json-tree-view
