@@ -1,0 +1,69 @@
+<div *ngFor="let item of obj | keyvalue" [style.margin-left.px]="margin">
+  <div>
+    <button
+      *ngIf="!isPrimitive(item.value) && item.value"
+      (click)="hiddeElement($event)"
+      class="hide_button"
+    >
+    <span *ngIf="minimized; else notMin">+</span>
+    <ng-template #notMin>-</ng-template>
+    
+    </button>
+
+    <span *ngIf="!isPrimitive(item.value); else isChild" >
+      <span
+        class="parent-key"
+        (dblclick)="editContent(item.key, item.value, $event, 'key', obj)"
+        >{{ item?.key }}</span
+      >
+      <span class="object_type"> {{ objectType(item?.value) }} </span>
+      <button
+        (click)="addObject(item.value, $event)"
+        class="add_button"
+        *ngIf="!readonly"
+      >
+        +1
+      </button>
+      <button class="delete_button" *ngIf="!readonly" (click)="deleteObject(obj, item.key, item.value)">X</button>
+    </span>
+
+    <ng-template #isChild>
+      <span
+        class="child-key"
+        (dblclick)="editContent(item.key, item.value, $event, 'key', obj)"
+        >{{ item?.key }}</span
+      >
+      <span class="separator"> : </span>
+      <span
+        *ngIf="objectType(item.value) === 'undefined'"
+        class="child-value-null"
+        (dblclick)="editContent(item.key, item.value, $event, 'value')"
+        >{{ isNull }}</span
+      >
+      <span
+        *ngIf="
+          isPrimitive(item.value) && objectType(item.value) !== 'undefined'
+        "
+        class="child-value"
+      >
+        <span
+          class="child-value"
+          (dblclick)="editContent(item.key, item.value, $event, 'value')"
+          >{{ textValue(item?.value) }}</span
+        >
+      </span>
+      <button class="delete_button" *ngIf="!readonly" (click)="deleteObject(obj, item.key, item.value)">X</button>
+
+    </ng-template>
+    <div class="contenedor" [hidden]="minimized">
+      <span *ngIf="isPrimitive(item.value); else complex"></span>
+      <ng-template #complex>
+        <ng-json-tree-view
+          [obj]="item?.value"
+          [margin]="margin + 4"
+          [readonly]="readonly"
+        ></ng-json-tree-view>
+      </ng-template>
+    </div>
+  </div>
+</div>

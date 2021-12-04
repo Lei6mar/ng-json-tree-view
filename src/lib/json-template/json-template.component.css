@@ -1,0 +1,140 @@
+.hidden {
+  display: none;
+}
+
+.contenedor {
+  /* rgb(46, 81, 128) */
+  /* padding-top: 1px; */
+  border-left: solid 1px lightsteelblue;
+}
+
+.child-key {
+  color: #2A2462;
+  cursor: pointer;
+  /* transition: font-size 2s; */
+}
+
+.child-key:hover {
+  background-color: azure;
+  /* font-size: 15px; */
+  /* height: 40px; */
+}
+
+.child-value {
+  /* color: forestgreen; */
+  color: #2E6F3C;
+  cursor: pointer;
+}
+
+.child-value:hover {
+  background-color: azure;
+}
+
+
+.child-value-null {
+  color: gray;
+  cursor: pointer;
+}
+
+.child-value-null:hover {
+  background-color: azure;
+
+}
+
+.parent-key {
+  /* color: purple; */
+  color: #2A2462;
+  /* padding-left: 5px; */
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.parent-key:hover {
+  background-color: azure;
+
+}
+
+.hide_button {
+  margin-right: 5px;
+  height: 12px;
+  width: 16px;
+  padding: 1px 3px;
+  font-size: 10px;
+  color: gray;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: ease-in .5s;
+}
+
+.hide_button:hover{
+  background-color: gray;
+  color: white;
+}
+
+.add_button {
+  color: #FFFFFF;
+  background-color: darkgray;
+  cursor: pointer;
+  border: none;
+  font-size: 10px;
+  border-radius: 10px;
+  padding-right: 5px;
+  opacity: 0;
+  transition: ease-in 0.5s;
+
+}
+
+.object_type {
+  color: grey;
+}
+
+.delete_button {
+  margin-left: 1px;
+  color: #FFFFFF;
+  background-color: #C32225;
+  cursor: pointer;
+  border: none;
+  font-size: 10px;
+  border-radius: 10px;
+  padding-right: 5px;
+  opacity: 0;
+  transition: ease-in 0.5s;
+  /* opacity: 1; */
+  /* background-color: transparent; */
+}
+
+.parent-key:hover ~ .add_button, .parent-key:hover ~ .delete_button {
+  opacity: 1;
+
+}
+
+.object_type:hover ~ .delete_button, .object_type:hover ~ .add_button {
+  opacity: 1;
+
+}
+
+.child-key:hover ~ .delete_button, .child-value:hover ~ .delete_button {
+  opacity: 1;
+}
+
+.separator:hover ~ .delete_button {
+  opacity: 1;
+}
+/* .child-value:hover ~ .delete_button, .child-value:hover ~ .delete_button {
+  opacity: 1;
+} */
+
+/* .object_type:hover ~ .delete_button, .object_type:hover ~ .add_button {
+  opacity: 1;
+
+} */
+
+ .add_button:hover {
+  opacity: 1;
+}
+
+.delete_button:hover{
+  opacity: 1;
+}
